@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Fork It Demo</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .jumbotron {
+            background-image: url("https://c2.staticflickr.com/6/5282/5244472025_25d41e83dc_b.jpg");
+            background-repeat: no-repeat;
+            background-position: 0px -100px;
+            background-size: cover;
+        }
+        .jumbotron h1, .jumbotron p {
+            color:#fff;
+        }
+    </style>
+    <script>
+    function a(){
+    $.ajax({ type: "POST", url: "https://alma24.pl/login",data:$("#dialogLoginForm").serialize(), dataType: "jsonp", success: function(data){ console.log(data); } });
+    }
+    function b(){
+        $.ajax({
+        type: "POST",
+        url: "https://alma24.pl/ajax/dodajListeToKoszyka.do",data:$("#addListToCartForm").serialize(),
+        dataType: "jsonp",
+        success: function(data){
+        console.log(data);
+        }
+        });
+    }
+    function c(){
+        document.location = "https://alma24.pl/zamowienie/koszyk.do";
+    }
+    function zamawiaj(){
+        a();
+        window.setTimeout(b,200);
+        window.setTimeout(c,300);
+    }
+    </script>
+  </head>
+  <body>
+    
+<div class="container">
+      <div class="header clearfix">
+        <h3 class="text-muted">Fork-it demonstration</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Prawn &amp; tofu pad Thai</h1>
+        
+        <p><a class="btn btn-lg btn-success" href="#" role="button" onclick="zamawiaj();">Order It!</a></p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-4">
+          <h4>Ingridients</h4>
+          <ul>
+      
+        <li>
+         <p class="">
+         <span class="">150 g flat rice noodles</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">1  Scotch bonnet chilli</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">1  fresh yellow chilli</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">2  limes</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">  sesame oil</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">2  red shallots</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">½ a bunch of Chinese chives</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">¼ of a bunch of Thai mint</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">½ a bunch of Thai basil</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">140 g silken tofu</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">4 large raw Tiger prawns, peeled</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">25 g dried shrimps</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">50 g shelled unsalted peanuts</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">1 pinch of chilli flakes</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">1 tablespoon shredded sweet radish</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">1 large free-range egg</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">60 g beansprouts</span>
+         </p>
+        </li>
+        <li><h4>For the tamarind sauce:</h4></li>
+        <li>
+         <p class="">
+         <span class="">25 g palm sugar</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">2 tablespoons tamarind paste</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">  fish sauce</span>
+         </p>
+        </li>
+        
+        <li>
+         <p class="">
+         <span class="">  white wine vinegar</span>
+         </p>
+        </li>
+              </ul>
+        </div>
+
+        <div class="col-lg-8">
+          <h4>Method</h4>
+          <p class="instructions">
+    Cook the rice noodles according to the packet instructions. Meanwhile, make the tamarind sauce. Coarsely grate the palm sugar into a bowl, then add the tamarind paste, 1 tablespoon of fish sauce, a dash of vinegar and 2 tablespoons of boiling water. Mix well so the sugar dissolves, then have a taste and adjust the flavours if needed – it should taste sweet, sour and slightly salty.  <br>
+<br>
+Halve, deseed and finely slice the chillies, then place in a bowl with the juice from 1 lime. Drain and toss the noodles in a little sesame oil. <br>
+<br>
+Peel and roughly chop the shallots, then trim and finely slice the chives. Pick and roughly chop most of the mint and basil leaves. Slice the tofu into rough 1cm chunks. Carefully slice through the back of each prawn, scrape out any black bits, then halve lengthways. Rinse the dried shrimps in cold running water, then dry with kitchen paper.<br>
+<br>
+Heat a splash of sesame oil in a large wok over a medium heat, then add the dried shrimps, peanuts and chilli flakes. Cook for 2 to 3 minutes, or until golden. Take the pan off the heat, transfer half of the mixture to a pestle and mortar, then bash until lightly crushed. Set to one side.<br>
+<br>
+Return the remaining shrimps and nuts to a medium-high heat with another splash of sesame oil. Add the shallots and fry for around 2 minutes, or until turning golden. Add the chives, chopped herb leaves, prawns and shredded radish, then cook for a further 2 to 3 minutes, or until the prawns are almost cooked through. Beat and add the egg to the pan, cook for 1 to 2 minutes, then fold through. Add the tofu, noodles, beansprouts and tamarind sauce, then toss well to combine.<br>
+<br>
+Divide the pad Thai between your bowls, sprinkle over the crushed nut mixture and scatter the reserved mint and basil leaves on top. Serve with the pickled chillies and extra lime wedges for squeezing over.    </p>
+<p><a class="btn btn-lg btn-success" href="#" role="button" onclick="zamawiaj();">Order It!</a></p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Fork It! 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+    
+
+<form method="post" id="dialogLoginForm" action="http://alma24.pl/login" novalidate="novalidate" style="display: none">
+            <label>E-mail </label><input type="email" name="j_username" required="required" data-message="Proszę wprowadzić poprawny adres e-mail" value="smagierski@gmail.com"> <br><br>
+            <label>Hasło </label> <input type="password" name="j_password" required="required" data-message="Proszę wprowadzić hasło" value="klopik"><br><br>
+
+            <label style="width: 257px; font-size:11px; color: #CDCDCD;">Zapamiętaj moje dane na tym komputerze</label>
+
+            <input class="checkbox" style="width:15px;" type="checkbox" name="_acegi_security_remember_me"> <br><br>
+
+            <div id="dialogLoginButtom">
+                <input class="button-small button-font ui-button ui-widget ui-state-default ui-corner-all" type="submit" value="Zaloguj" role="button" aria-disabled="false">
+            </div>
+        </form>
+
+<form id="addListToCartForm" name="addListToCartForm" action="https://alma24.pl/ajax/dodajListeToKoszyka.do" style="display: none">
+            <table class="alma-table-1">
+
+                    <tbody><tr>
+                        <td style="width: 420px;">
+                        Żywioł Żywiec Zdrój Woda źródlana gazowana 8 x 1,5 l
+                            <input type="hidden" id="p_485450433" name="productslist[0]" value="485450433_Żywioł Żywiec Zdrój Woda źródlana gazowana 8 x 1,5 l_1,0">
+                        </td>
+                        <td>
+                                <div id="spinner_485450433" style="margin-left: 60px;">
+                                    <label style="width:61px;margin:10px 5px">Ilość szt:</label>
+                                    <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input class="countSpinner ui-spinner-input" style="width:45px" id="s_485450433" readonly="readonly" value="1,00" countprecision="1,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="1"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+                                </div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="odd">
+                        <td style="width: 420px;">
+                        Fanta Pomarańczowa Napój gazowany 2,25 l
+                            <input type="hidden" id="p_428535186" name="productslist[1]" value="428535186_Fanta Pomarańczowa Napój gazowany 2,25 l_1,0">
+                        </td>
+                        <td>
+                                <div id="spinner_428535186" style="margin-left: 60px;">
+                                    <label style="width:61px;margin:10px 5px">Ilość szt:</label>
+                                    <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input class="countSpinner ui-spinner-input" style="width:45px" id="s_428535186" readonly="readonly" value="1,00" countprecision="1,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="1"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+                                </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td style="width: 420px;">
+                        Żywiec Zdrój Woda niegazowana 6 x 1,5 l
+                            <input type="hidden" id="p_59358" name="productslist[2]" value="59358_Żywiec Zdrój Woda niegazowana 6 x 1,5 l_1,0">
+                        </td>
+                        <td>
+                                <div id="spinner_59358" style="margin-left: 60px;">
+                                    <label style="width:61px;margin:10px 5px">Ilość szt:</label>
+                                    <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input class="countSpinner ui-spinner-input" style="width:45px" id="s_59358" readonly="readonly" value="1,00" countprecision="1,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="1"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+                                </div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="odd">
+                        <td style="width: 420px;">
+                        Red Bull Sugarfree Napój gazowany 250 ml
+                            <input type="hidden" id="p_61184" name="productslist[3]" value="61184_Red Bull Sugarfree Napój gazowany 250 ml_1,0">
+                        </td>
+                        <td>
+                                <div id="spinner_61184" style="margin-left: 60px;">
+                                    <label style="width:61px;margin:10px 5px">Ilość szt:</label>
+                                    <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input class="countSpinner ui-spinner-input" style="width:45px" id="s_61184" readonly="readonly" value="1,00" countprecision="1,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="1"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+                                </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td style="width: 420px;">
+                        Sprite Napój gazowany 1 l
+                            <input type="hidden" id="p_47320" name="productslist[4]" value="47320_Sprite Napój gazowany 1 l_1,0">
+                        </td>
+                        <td>
+                                <div id="spinner_47320" style="margin-left: 60px;">
+                                    <label style="width:61px;margin:10px 5px">Ilość szt:</label>
+                                    <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input class="countSpinner ui-spinner-input" style="width:45px" id="s_47320" readonly="readonly" value="1,00" countprecision="1,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="1"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+                                </div>
+                        </td>
+                    </tr>
+
+
+                    <tr class="odd">
+                        <td style="width: 420px;">
+                        Sprite Napój gazowany 2,25 l
+                            <input type="hidden" id="p_428535185" name="productslist[5]" value="428535185_Sprite Napój gazowany 2,25 l_1,0">
+                        </td>
+                        <td>
+                                <div id="spinner_428535185" style="margin-left: 60px;">
+                                    <label style="width:61px;margin:10px 5px">Ilość szt:</label>
+                                    <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input class="countSpinner ui-spinner-input" style="width:45px" id="s_428535185" readonly="readonly" value="1,00" countprecision="1,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="1"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody></table>
+            <input type="submit"/>
+        </form>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
