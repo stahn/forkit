@@ -26,26 +26,57 @@
         }
     </style>
     <script>
+    //logowanie się
     function a(){
-    $.ajax({ type: "POST", url: "https://alma24.pl/login",data:$("#dialogLoginForm").serialize(), dataType: "jsonp", success: function(data){ console.log(data); } });
-    }
-    function b(){
-        $.ajax({
-        type: "POST",
-        url: "https://alma24.pl/ajax/dodajListeToKoszyka.do",data:$("#addListToCartForm").serialize(),
-        dataType: "jsonp",
-        success: function(data){
-        console.log(data);
-        }
+        $.ajax({ 
+            type: "POST",
+            url: "https://alma24.pl/login",
+            jsonpCallback: 'dupa',
+            data:$("#dialogLoginForm").serialize(),
+            dataType: "jsonp",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(parsedjson, textStatus, errorThrown){
+                console.log(parsedjson);
+                if(parsedjson.status==200) {
+                    b();
+                } else {
+                    error();
+                }
+            }
         });
     }
+    //napelnianie koszyka
+    function b(){
+        $.ajax({
+            type: "POST",
+            url: "https://alma24.pl/ajax/dodajListeToKoszyka.do",
+            data:$("#addListToCartForm").serialize(),
+            dataType: "jsonp",
+            success: function(data){
+                console.log(data);
+            },
+            error: function(parsedjson, textStatus, errorThrown){
+                console.log(parsedjson);
+                if(parsedjson.status==200) {
+                    c();
+                } else {
+                    error();
+                }
+            }
+        });
+    }
+    //przekierowanie
     function c(){
         document.location = "https://alma24.pl/zamowienie/koszyk.do";
     }
+    function error() {
+        alert("coś poszło nie tak");
+    }
     function zamawiaj(){
         a();
-        window.setTimeout(b,1000);
-        window.setTimeout(c,4000);
+        window.setTimeout(error,10000);
     }
     </script>
   </head>
