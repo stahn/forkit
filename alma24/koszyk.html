@@ -24,6 +24,9 @@
         .jumbotron h1, .jumbotron p {
             
         }
+        .hidden {
+            display:none;
+        }
     </style>
     <script>
     //logowanie się
@@ -60,7 +63,8 @@
             error: function(parsedjson, textStatus, errorThrown){
                 console.log(parsedjson);
                 if(parsedjson.status==200) {
-                    c();
+                    $("#checkout-summary").removeClass("hidden");
+                    $("#checkout-loader").addClass("hidden");
                 } else {
                     error();
                 }
@@ -76,7 +80,8 @@
     }
     function zamawiaj(){
         a();
-        window.setTimeout(error,10000);
+        $("#checkout-summary img").width("50%");
+        //window.setTimeout(error,10000);
     }
     </script>
   </head>
@@ -92,7 +97,7 @@
             <img src="res/restaurant1.png" style="float:left;margin-right:10px"/>
             Crackin' crab briks with couscous salad &amp; salsa</h1>
         
-        <p><a class="btn btn-lg btn-success" href="#" role="button" onclick="zamawiaj();">Order It!</a></p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button" onclick="zamawiaj();" data-toggle="modal" data-target="#myModal">Order It!</a></p>
       </div>
 
       <div class="row marketing">
@@ -228,7 +233,7 @@ Finely chop the preserved lemons, trimmed spring onions and coriander (stalks an
 Put ½ a mug of couscous, 1 mug of boiling water, the tomato purée and a pinch of salt into a bowl and cover • Pick and reserve the fennel tops, then roughly chop and grate the bulb in the processor • Tip into the salad bowl, then chop and add the top leafy half of the mint • Squeeze in the lemon juice and drizzle with 1 tablespoon of extra virgin olive oil • Season to taste and toss everything together<br>
 <br>
 Finely grate the tomato and ginger into a little bowl • Add a pinch of salt and pepper, a good squeeze of lemon juice and 1 tablespoon of extra virgin olive oil and mix together • Fluff up the couscous, then tip on to a platter • Pile the salad in the middle, then bash the halved pomegranate over the top so the seeds tumble out • Scatter over the reserved fennel tops, pop the crab briks on a board and serve with dollops of yoghurt and the salsa    </p>
-<p><a class="btn btn-success" href="#" role="button" onclick="zamawiaj();">Order It!</a></p>
+<p><a class="btn btn-success" href="#" role="button" onclick="zamawiaj();" data-toggle="modal" data-target="#myModal">Order It!</a></p>
         </div>
       </div>
 
@@ -476,10 +481,457 @@ Finely grate the tomato and ginger into a little bowl • Add a pinch of salt an
             </tbody></table>
         </form>
 
+    <!-- Fork It Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">ForkIt! - zamów składniki do domu</h4>
+          </div>
+          <div class="modal-body">
+            <img src="res/load.gif" id="checkout-loader" style="width:70%;display: block;margin-left: auto;margin-right: auto;"/>
+
+            <div id="checkout-summary" class="hidden">
+
+             <button type="button" class="btn btn-success" style="float: right;" onclick="c();">
+                    <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                    Dokończ Zakupy
+                </button>
+                <span class="clearfix"></span>
+                <br/>
+
+                <table class="table table-hover summary">
+                    
+      <tbody>
+    <tr class="alt">
+        <td class="cart-shop-items-list-counter no-bg-img"> 1.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/117404/pomidory-polskie
+"><img src="http://alma24.pl/pr_images/min/8203.jpg
+" alt="Pomidory polskie"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/117404/pomidory-polskie
+">
+                Pomidory polskie
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        4,99 zl/kg
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">Waga kg:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="4,99" id="count_117404" readonly="readonly" countprecision="0,10" value="0,60" autocomplete="off" role="spinbutton" aria-valuemin="0.1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="0.6"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_117404" type="text" value="2,99" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="cart-shop-items-list-counter no-bg-img"> 2.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/125446037/jogurt-0%2525-typ-grecki
+"><img src="http://alma24.pl/pr_images/min/8718215090182.jpg
+" alt="Jogurt 0% typ grecki"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/125446037/jogurt-0%2525-typ-grecki
+">
+                Jogurt 0% typ grecki
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        2,39 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="2,39" id="count_125446037" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_125446037" type="text" value="7,17" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr class="alt">
+        <td class="cart-shop-items-list-counter no-bg-img"> 3.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/109220/granat
+"><img src="http://alma24.pl/pr_images/min/2090001177076.jpg
+" alt="Granat"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/109220/granat
+">
+                Granat
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        7,99 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="7,99" id="count_109220" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_109220" type="text" value="23,97" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="cart-shop-items-list-counter no-bg-img"> 4.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/132412731/koper-wloski
+"><img src="http://alma24.pl/pr_images/min/8063.jpg
+" alt="Koper włoski"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/132412731/koper-wloski
+">
+                Koper włoski
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        11,09 zl/kg
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">Waga kg:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="11,09" id="count_132412731" readonly="readonly" countprecision="0,10" value="0,60" autocomplete="off" role="spinbutton" aria-valuemin="0.1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="0.6"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_132412731" type="text" value="6,65" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr class="alt">
+        <td class="cart-shop-items-list-counter no-bg-img"> 5.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/295005014/pomidory-suszone-na-sloncu
+"><img src="http://alma24.pl/pr_images/min/5907377060291.jpg
+" alt="Pomidory suszone na słońcu"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/295005014/pomidory-suszone-na-sloncu
+">
+                Pomidory suszone na słońcu
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        14,90 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="14,90" id="count_295005014" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_295005014" type="text" value="44,70" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="cart-shop-items-list-counter no-bg-img"> 6.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/108289/sante-kasza-kuskus-250-g
+"><img src="http://alma24.pl/pr_images/min/5900617002242.jpg
+" alt="Sante Kasza kuskus 250 g"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/108289/sante-kasza-kuskus-250-g
+">
+                Sante Kasza kuskus 250 g
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        4,39 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="4,39" id="count_108289" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_108289" type="text" value="13,17" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr class="alt">
+        <td class="cart-shop-items-list-counter no-bg-img"> 7.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/47758/kamis-kminek-caly-15-g
+"><img src="http://alma24.pl/pr_images/min/5900084012010.jpg
+" alt="Kamis Kminek cały 15 g"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/47758/kamis-kminek-caly-15-g
+">
+                Kamis Kminek cały 15 g
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        2,39 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="2,39" id="count_47758" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_47758" type="text" value="7,17" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="cart-shop-items-list-counter no-bg-img"> 8.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/518890/oliwa-extra-vergine-acorsa
+"><img src="http://alma24.pl/pr_images/min/8428916979005.jpg
+" alt="Oliwa extra vergine Acorsa"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/518890/oliwa-extra-vergine-acorsa
+">
+                Oliwa extra vergine Acorsa
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        22,90 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="22,90" id="count_518890" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_518890" type="text" value="68,70" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr class="alt">
+        <td class="cart-shop-items-list-counter no-bg-img"> 9.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/426361483/ciasto-francuskie-food%26joy
+"><img src="http://alma24.pl/pr_images/min/5907377064084.jpg
+" alt="Ciasto francuskie Food&amp;Joy"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/426361483/ciasto-francuskie-food%26joy
+">
+                Ciasto francuskie Food&amp;Joy
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        3,99 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="3,99" id="count_426361483" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_426361483" type="text" value="11,97" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="cart-shop-items-list-counter no-bg-img"> 10.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/142555515/podravka-ajvar-ostry-195-g
+"><img src="http://alma24.pl/pr_images/min/3850104022524.jpg
+" alt="Podravka Ajvar ostry 195 g"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/142555515/podravka-ajvar-ostry-195-g
+">
+                Podravka Ajvar ostry 195 g
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        5,49 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="5,49" id="count_142555515" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_142555515" type="text" value="16,47" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr class="alt">
+        <td class="cart-shop-items-list-counter no-bg-img"> 11.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/1529818/paluszki-krabowe-surimi-2x125g
+"><img src="http://alma24.pl/pr_images/min/8410063035710.jpg
+" alt="Paluszki krabowe surimi 2x125g"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/1529818/paluszki-krabowe-surimi-2x125g
+">
+                Paluszki krabowe surimi 2x125g
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        6,99 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="6,99" id="count_1529818" readonly="readonly" countprecision="1,00" value="6,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="6"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_1529818" type="text" value="41,94" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="cart-shop-items-list-counter no-bg-img"> 12.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/101410/cebula-dymka-peczek
+"><img src="http://alma24.pl/pr_images/min/2090001173917.jpg
+" alt="Cebula dymka pęczek"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/101410/cebula-dymka-peczek
+">
+                Cebula dymka pęczek
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        2,19 zl/szt
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">
+                Ilość szt:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="2,19" id="count_101410" readonly="readonly" countprecision="1,00" value="3,00" autocomplete="off" role="spinbutton" aria-valuemin="1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="3"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_101410" type="text" value="6,57" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+    <tr class="alt">
+        <td class="cart-shop-items-list-counter no-bg-img"> 13.
+        </td>
+        <td class="cart-shop-items-list-img">
+
+            <a href="/produkt/109212/cytryny
+"><img src="http://alma24.pl/pr_images/min/8079.jpg
+" alt="Cytryny"></a>
+        </td>
+        <td class="cart-shop-items-list-links">
+            <a class="block margin-medium" href="/produkt/109212/cytryny
+">
+                Cytryny
+            </a>
+
+        </td>
+        <td class="cart-shop-item-list-price grey ">
+        6,49 zl/kg
+        </td>
+
+        <td class="cart-shop-items-spinner ">
+            <span style="float:left;width:43px;text-align:right;padding-right:8px">Waga kg:</span>
+            <span class="ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all"><input style="width:50px" class="countSpinner ui-spinner-input" price="6,49" id="count_109212" readonly="readonly" countprecision="0,10" value="0,90" autocomplete="off" role="spinbutton" aria-valuemin="0.1" aria-valuemax="1.7976931348623157e+308" aria-valuenow="0.9"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span></a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+        </td>
+        <td class="cart-shop-items-list-total-price ">
+            Razem: <input class="no-bg-no-border" style="width: 40px;text-align: right;" id="price_109212" type="text" value="5,84" readonly="readonly"> zł
+        </td>
+    </tr>
+
+
+
+        </tbody>
+        </table>
+
+
+    <button type="button" class="btn btn-success" style="float: right;" onclick="c();">
+                    <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                    Dokończ Zakupy
+                </button>
+                <span class="clearfix"></span>
+   
+
+
+            </div>
+
+
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
   </body>
 </html>
